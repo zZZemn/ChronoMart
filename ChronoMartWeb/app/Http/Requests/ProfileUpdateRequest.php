@@ -25,6 +25,8 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'contact_no' => ['required', 'regex:/^09\d{9}$/', 'min:11', 'max:11'],
+            'uploaded_profile_picture' => ['nullable', 'file', 'image', 'max:2048'],
         ];
     }
 }

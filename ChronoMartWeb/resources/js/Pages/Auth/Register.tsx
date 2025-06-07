@@ -12,6 +12,7 @@ export default function Register() {
         email: '',
         password: '',
         password_confirmation: '',
+        contact_no: ''
     });
 
     const submit: FormEventHandler = (e) => {
@@ -42,6 +43,23 @@ export default function Register() {
                     />
 
                     <InputError message={errors.name} className="mt-2" />
+                </div>
+
+                <div className="mt-4">
+                    <InputLabel htmlFor="contact_no" value="Contact no." />
+
+                    <TextInput
+                        id="contact_no"
+                        type="number"
+                        name="contact_no"
+                        value={data.contact_no}
+                        className="mt-1 block w-full"
+                        autoComplete="username"
+                        onChange={(e) => setData('contact_no', e.target.value)}
+                        required
+                    />
+
+                    <InputError message={errors.contact_no} className="mt-2" />
                 </div>
 
                 <div className="mt-4">

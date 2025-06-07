@@ -1,23 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 
-import { useEffect, useState } from 'react';
-import { echo } from '@/echo';
-
 export default function Dashboard() {
-    const [notifications, setNotifications] = useState<string[]>([]);
-
-    useEffect(() => {
-        echo.private('test-channel.1')
-            .listen('MessageSent', (e: any) => {
-                setNotifications((prev) => [...prev, e.message]);
-            });
-
-        return () => {
-            echo.leave('test-channel.1');
-        };
-    }, []);
-
     return (
         <AuthenticatedLayout
             header={
@@ -36,10 +20,6 @@ export default function Dashboard() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div>
-                {notifications.map((n, i) => <li key={i}>{n}</li>)}
             </div>
         </AuthenticatedLayout>
     );

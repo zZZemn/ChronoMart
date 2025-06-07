@@ -5,6 +5,9 @@ export interface User {
     name: string;
     email: string;
     email_verified_at?: string;
+    contact_no: string;
+    profile_picture?: string | File | null;
+    uploaded_profile_picture: File | null;
 }
 
 export type PageProps<
